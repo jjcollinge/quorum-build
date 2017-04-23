@@ -9,7 +9,7 @@ Simply clone this repository, rename `example.env.sh` to `env.sh`, open the file
 
 Now run `docker build -t qbuild .` to build the initial Dockerfile.
 
-Finally, run `docker run -v /var/run/docker.sock:/var/run/docker.sock -t qbuild`. This will kick off a Docker container that will build and upload the quorum and constellation binaries to Azure Blob Storage. **NOTE** The quorum binaries are statically linked, however, the constellation binaries do rely on external packages which are not currently bundled with this tool.
+Finally, run `docker run -v /var/run/docker.sock:/var/run/docker.sock -t qbuild`. This will kick off a Docker container that will build and upload the quorum and constellation binaries to Azure Blob Storage. **NOTE** The quorum binaries are statically linked, however, the constellation binaries do rely on the external packages `libdb-dev libsodium-dev zlib1g-dev libtinfo-dev` which are not currently bundled with this tool.
 
 ## Tips
 The `env.sh` file allows you to define both `BUILD_ARGS` and `RUN_ARGS` which will be injected into the docker execution commands. Use these to customise your docker behaviour however you see fit .i.e. `--no-cache` if you want to disable caching.
